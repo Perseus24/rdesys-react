@@ -19,6 +19,9 @@ Route::controller(GoogleAuthController::class)->group(function () {
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('faculty/dashboard', [DashboardController::class, 'show'])->name('dashboard.faculty');
+    Route::get('faculty/submission-form', function() {
+        return Inertia::render('faculty/submission-form');
+    } )->name('dashboard.submit-form');
 });
 
 require __DIR__.'/settings.php';

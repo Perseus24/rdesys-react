@@ -18,20 +18,12 @@ import {
 } from "@/components/ui/sidebar"
 import { Link } from "@inertiajs/react"
 import clsx from "clsx"
+import { NavItem } from "@/types"
 
 export function NavMain({
     items,
     }: {
-    items: {
-        title: string
-        url: string
-        icon?: LucideIcon
-        isActive?: boolean
-        items?: {
-        title: string
-        url: string
-        }[]
-    }[]
+    items: NavItem[]
 }) {
     return (
         <SidebarGroup>
@@ -45,7 +37,7 @@ export function NavMain({
                         "flex items-center space-x-2 rounded-md px-2 py-1 text-sm font-medium transition-colors duration-200 ease-in-out",
                         item.isActive ? "bg-cyan-500 text-white hover:bg-cyan-500 hover:text-none" : "",
                     )}>
-                        <Link href={item.url}>
+                        <Link href={item.href}>
                             {item.icon && <item.icon />}
                             <span>{item.title}</span>
                         </Link>    
@@ -66,7 +58,7 @@ export function NavMain({
                             item.items?.map((subItem)=>(
                                 <SidebarMenuSubItem key={subItem.title}>
                                 <SidebarMenuSubButton asChild className="hover:bg-white/10 hover:text-white">
-                                    <Link className="text-white" href={subItem.url}>{subItem.title}</Link>
+                                    <Link className="text-white" href={subItem.href}>{subItem.title}</Link>
                                 </SidebarMenuSubButton>
                                 </SidebarMenuSubItem>
                             ))
