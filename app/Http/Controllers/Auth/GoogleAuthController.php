@@ -44,15 +44,15 @@ class GoogleAuthController extends Controller
             $user = User::where('email', $googleUser->email)->first();
             // Login User if already registered
             
-            // if($user){
-            //     Auth::login($user);
-            //     if($user->email == 'proposals.rdmd@bicol-u.edu.ph'){
-            //         return redirect()->intended(route('dashboard.rdmd'));
-            //     } else if ($user->email == 'bu-ipmd@gmail.com') {
-            //         return redirect()->intended(route('dashboard.ipmd'));
-            //     } 
-            //     return redirect()->intended(route('dashboard.faculty'));
-            // }
+            if($user){
+                Auth::login($user);
+                if($user->email == 'proposals.rdmd@bicol-u.edu.ph'){
+                    return redirect()->intended(route('dashboard.rdmd'));
+                } else if ($user->email == 'bu-ipmd@gmail.com') {
+                    return redirect()->intended(route('dashboard.ipmd'));
+                } 
+                return redirect()->intended(route('dashboard.faculty'));
+            }
             $googleEmail = $googleUser->email;  // get the google email
             $researcher = Researcher::query()
                 ->select('researcher.*', 'faculty_multi_email.email as faculty_email')

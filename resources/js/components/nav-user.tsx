@@ -8,9 +8,11 @@ import { usePage } from '@inertiajs/react';
 import { ChevronsUpDown } from 'lucide-react';
 
 export function NavUser() {
-    const { auth } = usePage<SharedData>().props;
-    const { state } = useSidebar();
-    const isMobile = useIsMobile();
+        const { auth } = usePage<SharedData>().props;
+        const { state } = useSidebar();
+        const isMobile = useIsMobile();
+
+        console.log("debugging: ", auth)
 
     return (
         <SidebarMenu>

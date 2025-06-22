@@ -7,7 +7,7 @@ export interface Auth {
 
 export interface BreadcrumbItem {
     title: string;
-    href: string;
+    url: string;
 }
 
 export interface NavGroup {
@@ -31,13 +31,29 @@ export interface SharedData {
     [key: string]: unknown;
 }
 
-export interface User {
+// export interface User {
+//     id: number;
+//     name: string;
+//     email: string;
+//     avatar?: string;
+//     email_verified_at: string | null;
+//     created_at: string;
+//     updated_at: string;
+//     [key: string]: unknown; // This allows for additional properties...
+// }
+
+interface UserData {
     id: number;
+    google_id: string;
     name: string;
     email: string;
-    avatar?: string;
+    picture: string;
+    user_division: string;
+    status: string;
     email_verified_at: string | null;
+    password: string;
+    remember_token: string | null;
     created_at: string;
     updated_at: string;
-    [key: string]: unknown; // This allows for additional properties...
 }
+
