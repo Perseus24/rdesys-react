@@ -42,7 +42,10 @@ const Dashboard: React.FC<Props> = ({ userData, researcherDetails }) => {
                     <div className="relative h-full min-h-[30vh] overflow-hidden rounded-xl border border-sidebar-border/70 bg-cyan-500/10 p-6 text-gray-800">
                         <p className='text-2xl font-semibold w-1/2 mb-4'>Welcome, {userData.name}!</p>
                         <p className='text-sm font-medium'>The Call for BU-Funded Research and Development Proposals is currently closed.</p>
-                        <Button className='mt-4 bg-cyan-500 hover:bg-cyan-500/80' >Learn More</Button>
+                        <div className='flex gap-3 mt-4'>
+                            <Button variant={'secondary'} className='shadow-none bg-white' >Learn More</Button>
+                            <Button className='bg-cyan-500 hover:bg-cyan-500/80' >Submit Now</Button>
+                        </div>
                     </div>
                     <div className="relative h-full overflow-hidden rounded-xl border border-sidebar-border/70 p-6 pl-12 text-gray-600">
                         <img src="/images/bu_logo.svg" width={50} height={50} alt="BU Logo"  className='absolute right-6 top-6' />
