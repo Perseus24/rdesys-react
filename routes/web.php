@@ -32,7 +32,7 @@ Route::get('rdmd/dashboard', function() {
 })->name('dashboard.rdmd');
 
 Route::get('rdmd/user-management', function() {
-    return Inertia::render('rdmd/user-management');
+    return Inertia::render('rdmd/userManagement/user-management');
 })->name('rdmd.user-management');
 
 
